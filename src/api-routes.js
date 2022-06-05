@@ -13,12 +13,12 @@ export const apiRoutes = [
   { method: "POST", path: "/api/placemarks", config: placemarkApi.create },
   { method: "DELETE", path: "/api/placemarks", config: placemarkApi.deleteAll },
   { method: "GET", path: "/api/placemarks", config: placemarkApi.find },
-  { method: "GET", path: "/api/placemarks/{id}", config: placemarkApi.findOne },
-  { method: "DELETE", path: "/api/placemarks/{id}", config: placemarkApi.deleteOne },
+  { method: "GET", path: "/api/placemarks/{_id}", config: placemarkApi.findOne },
+  { method: "DELETE", path: "/api/placemarks/{_id}", config: placemarkApi.deleteOne },
 
   { method: "GET", path: "/api/markers", config: markerApi.find },
-  { method: "GET", path: "/api/markers/{id}", config: markerApi.findOne },
-  { method: "POST", path: "/api/placemarks/{id}/markers", config: markerApi.create },
+  { method: "GET", path: "/api/markers/{_id}", config: markerApi.findOne },
+  { method: "POST", path: "/api/placemarks/{_id}/markers", config: markerApi.create },
   { method: "DELETE", path: "/api/markers", config: markerApi.deleteAll },
-  { method: "DELETE", path: "/api/markers/{id}", config: markerApi.deleteOne },
+  { method: "DELETE", path: "/api/markers/{_id}", config: markerApi.deleteOne },
 ];

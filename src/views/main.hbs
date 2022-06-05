@@ -1,14 +1,35 @@
 {{> welcome-menu}}
 
-<section>
-    <div class="container">
+<section class="section is-3">
+    <div class="container has-text-centered">
       <div class="notification is-light">
         <p class="title">
-          Please Login or Sign Up to Placemark
-        </p>
-        <p class="subtitle">
-          Placemark welcomes you to input your favourite places you love around the world and pin them on our world map!
+          Welcome to Placemark
         </p>
       </div>
     </div>
+</section>
+
+<section>
+  <div>
+  </div>
+</section>
+
+<section>
+<div class="columns is-vcentered">
+  <div class="column has-text-centered">
+    <img src="images/landscape1.jpg"/>
+  </div>
+  <div class="column box has-text-centered">
+    <h1 class="title is-4">Please Login or Sign Up to Placemark</h1>
+    <h2 class="title is-6">Placemark welcomes you to input your favourite places you love around the world!</h2>
+  </div>
+</div>
+</section>
+
+<section class="section is-medium">
+  <div class="columns">
+    <div class="column is-half">{{> add-comments}}</div>
+    <div class="column is-half">{{> list-comments}}</div>
+  </div>
 </section>

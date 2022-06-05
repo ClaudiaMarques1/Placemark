@@ -19,6 +19,11 @@ export const markerMongoStore = {
     return markers;
   },
 
+  async getMarkersByCommentId(id) {
+    const markers = await Marker.find({ placemarkid: id }).lean();
+    return markers;
+  },
+
   async getMarkerById(id) {
     if (id) {
       const marker = await Marker.findOne({ _id: id }).lean();

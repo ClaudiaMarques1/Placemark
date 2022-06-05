@@ -6,9 +6,11 @@ export const placemarkController = {
   index: {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
+      const comments = await db.commentStore.getCommentsByPlacemarkId(request.params.id);
       const viewData = {
         title: "Placemark",
         placemark: placemark,
+        comments: comments,
       };
       return h.view("placemark-view", viewData);
     },
@@ -18,13 +20,16 @@ export const placemarkController = {
     validate: {
       payload: MarkerSpec,
       options: {
-        abortEarly: false
+        abortEarly: false,
       },
       failAction: function (request, h, error) {
-        return h.view("placemark-view", {
-          title: "Add marker error",
-          errors: error.details
-        }).takeover().code(400);
+        return h
+          .view("placemark-view", {
+            title: "Add marker error",
+            errors: error.details,
+          })
+          .takeover()
+          .code(400);
       },
     },
     handler: async function (request, h) {
@@ -67,7 +72,7 @@ export const placemarkController = {
       multipart: true,
       output: "data",
       maxBytes: 209715200,
-      parse: true
-    }
-  }
+      parse: true,
+    },
+  },
 };

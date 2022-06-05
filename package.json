@@ -1,16 +1,16 @@
 {
   "name": "placemark",
-  "version": "0.9.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js ",
-    "dev": "./node_modules/.bin/nodemon src/server.js  --ignore 'src/models/json/*.json'",
-    "lint": "./node_modules/.bin/eslint . --ext .js",
-    "test": "./node_modules/mocha/bin/mocha --ui tdd test/**/*.js",
-    "testmodels": "./node_modules/mocha/bin/mocha --ui tdd test/models/**/*.js",
-    "testapi": "./node_modules/mocha/bin/mocha --ui tdd test/api/**/*.js"
+    "dev": "npx nodemon src/server.js  --ignore 'src/models/json/*.json'",
+    "lint": "npx eslint . --ext .js",
+    "test": "npx mocha --ui tdd test/**/*.js",
+    "testmodels": "npx mocha --ui tdd test/models/**/*.js",
+    "testapi": "npx mocha --ui tdd test/api/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,39 +20,40 @@
     "node",
     "hapi"
   ],
-  "author": "edeleastar",
+  "author": "CMarques",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ClaudiaMarques1/Placemark/issues"
   },
   "homepage": "https://github.com/ClaudiaMarques1/Placemark#readme",
   "dependencies": {
-    "@hapi/boom": "^9.1.4",
+    "@hapi/boom": "^10.0.0",
     "@hapi/cookie": "^11.0.2",
-    "@hapi/hapi": "^20.2.1",
+    "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^6.0.5",
     "@hapi/vision": "^6.1.0",
-    "cloudinary": "^1.28.1",
-    "dotenv": "^14.3.2",
+    "cloudinary": "^1.30.0",
+    "dotenv": "^16.0.1",
     "handlebars": "^4.7.7",
     "hapi-auth-jwt2": "^10.2.0",
-    "hapi-swagger": "^14.2.4",
+    "hapi-swagger": "^14.5.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "lowdb": "^3.0.0",
     "mais-mongoose-seeder": "^1.0.7",
-    "mongoose": "^6.1.8",
+    "mongoose": "^6.3.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "axios": "^0.25.0",
+    "axios": "^0.27.2",
     "chai": "^4.3.6",
-    "eslint": "^8.7.0",
+    "cypress": "^10.0.2",
+    "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "mocha": "^9.2.0",
-    "nodemon": "^2.0.15",
-    "prettier": "^2.5.1"
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "^10.0.0",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
   }
 }

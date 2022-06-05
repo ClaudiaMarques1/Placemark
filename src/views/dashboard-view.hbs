@@ -1,6 +1,18 @@
 {{> menu active="dashboard"}}
 
-<section class="section">
-  {{> list-placemark}}
-  {{> add-placemark}}
+<section class="section is-3">
+<div class="columns is-vcentered">
+  <div class="column has-text-centered">
+    <div class="notification is-light">
+     <h1 class="title is-4">Write your Favourite Country or County!</h1>
+    </div>
+    <img src="/images/landscape2.jpg"/>
+  </div>
+  <div class="column box has-text-centered">
+    {{> list-placemark}}
+  </div>
+</div>
+</section>
+<section class="section is-3 has-text-centered">
+    {{> add-placemark}}
 </section>

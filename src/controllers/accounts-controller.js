@@ -4,8 +4,13 @@ import { db } from "../models/db.js";
 export const accountsController = {
   index: {
     auth: false,
-    handler: function (request, h) {
-      return h.view("main", { title: "Welcome to Placemark" });
+    handler: async function (request, h) {
+      const comments = await db.commentStore.getAllComments();
+      const viewData = {
+        title: "Welcome to Placemark",
+        comments: comments,
+      };
+      return h.view("main", viewData);
     },
   },
   showSignup: {
@@ -68,4 +73,29 @@ export const accountsController = {
     }
     return { valid: true, credentials: user };
   },
+
+  listComment: {
+    auth: false,
+    handler: function (request, h) {
+      return h.view("list-comments", { title: "List of Comments" });
+    },
+  },
+  addComment: {
+    handler: async (request, h) => {
+      try {
+        const newComments = {
+          title: request.payload.title,
+          date: new Date().toDateString(),
+          body: request.payload.body,
+        };
+        console.log(newComments);
+        await db.commentStore.addComment(newComments);
+        return h.redirect("/");
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    },
+  },
 };
+
