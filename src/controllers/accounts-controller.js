@@ -8,10 +8,8 @@ export const accountsController = {
   index: {
     auth: false,
     handler: async function (request, h) {
-      const comments = await db.commentStore.getAllComments();
       const viewData = {
         title: "Welcome to Placemark",
-        comments: comments,
       };
       return h.view("main", viewData);
     },
@@ -79,27 +77,22 @@ export const accountsController = {
     return { valid: true, credentials: user };
   },
 
-  listComment: {
-    auth: false,
-    handler: function (request, h) {
-      return h.view("list-comments", { title: "List of Comments" });
-    },
-  },
-  addComment: {
-    handler: async (request, h) => {
-      try {
-        const newComments = {
-          title: request.payload.title,
-          date: new Date().toDateString(),
-          body: request.payload.body,
+  loginOauth: {
+    auth: "github-oauth",
+    handler: async function (request, h) {
+      if (request.auth.isAuthenticated) {
+        console.log(request.auth.credentials)
+        const Name = request.auth.credentials.profile.displayName.split(" ");
+        const newUser = {
+          firstName: Name[0],
+          lastName: Name[1],
+          email: request.auth.credentials.profile.email
         };
-        console.log(newComments);
-        await db.commentStore.addComment(newComments);
-        return h.redirect("/");
-      } catch (error) {
-        console.log(error);
-        return false;
+        const user = await db.userStore.addUser(newUser);
+        request.cookieAuth.set({ id: user._id });
+        return h.redirect("/dashboard");
       }
+      return h.redirect("/");
     },
   },
 };

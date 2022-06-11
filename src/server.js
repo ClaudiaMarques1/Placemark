@@ -2,6 +2,7 @@ import Inert from "@hapi/inert";
 import Vision from "@hapi/vision";
 import Hapi from "@hapi/hapi";
 import Cookie from "@hapi/cookie";
+import Bell from "@hapi/bell";
 import dotenv from "dotenv";
 import path from "path";
 import Joi from "joi";
@@ -18,6 +19,14 @@ import { imageStore } from "./models/image-store.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const bellAuthOptions = {
+  provider: "github",
+  password: "github-encryption-password-secure", // String used to encrypt cookie
+  clientId: "7d33c7e7eddaddc34407",          //GitHub Client ID 
+  clientSecret: "61f3019006f74653329fb40640cb6ec0ef9496be",  // Github Client Secret
+  isSecure: false        // (requires HTTPS)
+};
 
 const result = dotenv.config();
 if (result.error) {
@@ -49,6 +58,7 @@ async function init() {
   await server.register(Vision);
   await server.register(Cookie);
   await server.register(jwt);
+  await server.register(Bell);
 
   await server.register([
     Inert,
@@ -87,6 +97,7 @@ async function init() {
     validate: validate,
     verifyOptions: { algorithms: ["HS256"] }
   });
+  server.auth.strategy("github-oauth", "bell", bellAuthOptions);
   server.auth.default("session");
 
   db.init("mongo");

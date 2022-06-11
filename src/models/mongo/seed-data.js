@@ -51,17 +51,19 @@ export const seedData = {
     },
   },
 
-  comments: {
-    _model: "Comment",
-    adam: {
-      title: "Adam Stuart",
-      date: "Tue May 31 2022",
-      body: "Hello this is my comment from Adam",
+  reviews: {
+    _model: "Review",
+    review_1: {
+      comment: "This is my first review from Bart",
+      rating: 5,
+      userid: "->users.bart",
+      placemarkid: "->placemarks.dublin"
     },
-    sarah: {
-      title: "Sarah Lynch",
-      date: "Wed Jun 01 2022",
-      body: "Hello this is my comment from Sarah",
-    }
-  }
+    review__2: {
+      comment: "This is my second review from Bart",
+      rating: 4,
+      userid: "->users.bart",
+      placemarkid: "->placemarks.dublin"
+    },
+  },
 };

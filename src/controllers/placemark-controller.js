@@ -6,11 +6,11 @@ export const placemarkController = {
   index: {
     handler: async function (request, h) {
       const placemark = await db.placemarkStore.getPlacemarkById(request.params.id);
-      const comments = await db.commentStore.getCommentsByPlacemarkId(request.params.id);
+      const reviews = await db.reviewStore.getReviewsByPlacemarkId(request.params.id);
       const viewData = {
         title: "Placemark",
         placemark: placemark,
-        comments: comments,
+        reviews: reviews,
       };
       return h.view("placemark-view", viewData);
     },

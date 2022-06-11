@@ -8,7 +8,7 @@ export const userMongoStore = {
 
   async getUserById(id) {
     if (id) {
-      const user = await User.findOne({ _id: id }).lean();
+      const user = await User.findOne({ _id: id });
       return user;
     }
     return null;
