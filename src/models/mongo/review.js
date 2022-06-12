@@ -15,4 +15,4 @@ const reviewSchema = new Schema({
     },
 });
 
-export const Review = Mongoose.model("Review", reviewSchema);
+export const Review = Mongoose.model("Review", reviewSchema); 

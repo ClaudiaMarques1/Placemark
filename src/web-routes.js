@@ -3,7 +3,7 @@ import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { placemarkController } from "./controllers/placemark-controller.js";
 import { markerController } from "./controllers/marker-controller.js";
-import { reviewController } from "./controllers/review-controller.js";
+import { reviewController } from "./controllers/review-controller.js"; // Using the review controller to link /addreview to AddReview function in Controller
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -12,7 +12,7 @@ export const webRoutes = [
   { method: "GET", path: "/logout", config: accountsController.logout },
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
-  { method: "GET", path: "/loginoauth", config: accountsController.loginOauth },
+  { method: "GET", path: "/loginoauth", config: accountsController.loginOauth }, // OAuth GitHub function in Accounts Controller linking function to button.
 
   { method: "GET", path: "/about", config: aboutController.index },
 
@@ -23,7 +23,7 @@ export const webRoutes = [
   { method: "GET", path: "/placemark/{id}", config: placemarkController.index },
   { method: "POST", path: "/placemark/{id}/addmarker", config: placemarkController.addMarker },
   { method: "GET", path: "/placemark/{id}/deletemarker/{markerid}", config: placemarkController.deleteMarker },
-  { method: "POST", path: "/placemark/{id}/addreview", config: reviewController.addReview },
+  { method: "POST", path: "/placemark/{id}/addreview", config: reviewController.addReview }, // Adding AddReview to Placemark Page
 
   { method: "GET", path: "/marker/{id}/editmarker/{markerid}", config: markerController.index },
   { method: "POST", path: "/marker/{id}/updatemarker/{markerid}", config: markerController.update },

@@ -17,21 +17,17 @@ export const seedData = {
       firstName: "Bart",
       lastName: "Simpson",
       email: "bart@simpson.com",
-      password: "$2a$10$uqnPlgyVjBEOtcgMhn/WRO3FwW4T9gX36tTB4RqpGeB/LkCR3YQuO"
+      password: "$2a$10$39uXZMw.03wSG4LslS7nSO6gVFEBjAfPSn3NR.SFSmKqV2fSE46BC"
     }
   },
   placemarks: {
     _model: "Placemark",
     dublin: {
       title: "Dublin Favourites",
-      lat: "52.160858",
-      lng: "-7.152420",
       userid: "->users.bart"
     },
     cork: {
       title: "Cork Favourites",
-      lat: "52.149220",
-      lng: "-6.994620",
       userid: "->users.bart"
     }
   },
@@ -55,13 +51,13 @@ export const seedData = {
     _model: "Review",
     review_1: {
       comment: "This is my first review from Bart",
-      rating: 5,
+      rating: "5",
       userid: "->users.bart",
       placemarkid: "->placemarks.dublin"
     },
     review__2: {
       comment: "This is my second review from Bart",
-      rating: 4,
+      rating: "4",
       userid: "->users.bart",
       placemarkid: "->placemarks.dublin"
     },

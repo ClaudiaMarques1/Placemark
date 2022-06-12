@@ -2,9 +2,9 @@ describe('Placemark Tests', () => {
     const email = Cypress.env('email');
     const password = Cypress.env('password');
 
-    context('When user logs in', () => {
+    context('WHEN user logs in', () => {
         before(() => {
-            cy.visit('/')
+            cy.visit('/login')
             cy.login(email, password)
         });
 
@@ -16,7 +16,7 @@ describe('Placemark Tests', () => {
             })
         })*/
 
-        it('User should sees Placemark logo', () => {
+        it('User SHOULD sees Placemark logo', () => {
             cy.get('[data-icon="map-marked-alt"]')
                 .should('exist').and('have.attr', 'role', 'img')
         });
@@ -24,15 +24,26 @@ describe('Placemark Tests', () => {
         it('AND can add a placemark', () => {
             cy.get('.input')
                 .should('have.attr', 'placeholder', 'Enter placemark title')
-                .type('Placemarker Title 1')
-
-
+                .type('Placemark Title 1')
             cy.get('form >.button')
                 .should('exist').and('have.class', 'button is-primary')
                 .and('have.css', 'background-color', 'rgb(0, 209, 178)')
                 .click()
-            // Redirect after login is not
-            // directing to '/dashboard'
         });
     });
+
+    /*context.skip('WHEN user adds a placemark', () => {
+        before(() => {
+            cy.visit('/login')
+            cy.login(email, password)
+        });
+
+        it('THEN user can see created Placemark', () => {
+
+        });
+
+        it('AND user can remove created placemark', () => {
+
+        });
+    })*/
 });

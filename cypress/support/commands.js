@@ -40,14 +40,13 @@ Cypress.Commands.add('restoreLocalStorage', () => {
 
 Cypress.Commands.add('login', (email, password) => {
     cy.intercept('POST', '/authenticate').as('LoginRequest');
-    cy.get(`#login`).should("exist").and("have.text", " Log in ")
-        .click();
+    cy.get('input[placeholder="Enter email"]')
+        .should('be.visible')
+        .and('have.attr', 'name', 'email').type(email);
 
-    cy.get(`:nth-child(1) > .input`)
-        .should('be.visible').type(email);
-
-    cy.get(`:nth-child(2) > .input`)
-        .should('be.visible').type(password);
+    cy.get('input[placeholder="Enter Password"]')
+        .should('be.visible')
+        .and('have.attr', 'name', 'password').type(password);
 
     cy.get('[data-cy="loginButton"]')
         .should('have.class', 'button is-link')

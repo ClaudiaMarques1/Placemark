@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { maggie, dublin, testPlacemarks, testMarkers, gym, maggieCredentials } from "../fixtures.js";
+import { maggie, dublin, testMarkers, gym, maggieCredentials } from "../fixtures.js";
 
 suite("Marker API tests", () => {
   let user = null;

@@ -13,7 +13,7 @@ export default defineConfig({
     },
     env: {
       email: "bart@simpson.com"
-      //password: "secret"
+      //password: "bartssecret"
     },
     baseUrl: 'http://localhost:3000',
     specPattern: "cypress/e2e/**/*.{js,jsx,ts,tsx}",

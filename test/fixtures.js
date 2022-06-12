@@ -12,24 +12,25 @@ export const maggieCredentials = {
   password: "secret"
 };
 
-export const testUsers = [{
-  firstName: "Homer",
-  lastName: "Simpson",
-  email: "homer@simpson.com",
-  password: "secret"
-},
-{
-  firstName: "Marge",
-  lastName: "Simpson",
-  email: "marge@simpson.com",
-  password: "secret"
-},
-{
-  firstName: "Bart",
-  lastName: "Simpson",
-  email: "bart@simpson.com",
-  password: "secret"
-}
+export const testUsers = [
+  {
+    firstName: "Homer",
+    lastName: "Simpson",
+    email: "homer@simpson.com",
+    password: "$2a$10$HnapEWWKQQ0.0Ft33nXxtuJ0fsmd9ywYswEzT4C.6Ul5y6cOU.UEa"
+  },
+  {
+    firstName: "Marge",
+    lastName: "Simpson",
+    email: "marge@simpson.com",
+    password: "$2a$10$D3TWK8MSAh63Lhk4gIFSJ.ekM368J88qJRUYSbuBfzffex6B0dFwK"
+  },
+  {
+    firstName: "Bart",
+    lastName: "Simpson",
+    email: "bart@simpson.com",
+    password: "$2a$10$uqnPlgyVjBEOtcgMhn/WRO3FwW4T9gX36tTB4RqpGeB/LkCR3YQuO"
+  }
 ];
 
 export const dublin = {
@@ -62,5 +63,28 @@ export const testMarkers = [
     "title": "Favourite Restaurant",
     "location": "McDonalds",
     "date": "Sun Dec 12 2021"
+  },
+  {
+    "title": "Favourite Gym",
+    "location": "F1T",
+    "date": "Sun Dec 15 2022"
+  },
+];
+
+export const review1 = [
+  {
+    "comment": "Test Review 1",
+    "rating": "3"
+  }
+]
+
+export const testReviews = [
+  {
+    "comment": "This is my first review from Bart",
+    "rating": "5"
+  },
+  {
+    "comment": "This is my second review from Bart",
+    "rating": "4"
   }
 ];
